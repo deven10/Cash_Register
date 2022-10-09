@@ -3,13 +3,17 @@ const cashGiven = document.querySelector("#cash-given");
 const checkButton = document.querySelector("#check-button");
 const message = document.querySelector("#error-message");
 const noOfNotes = document.querySelectorAll(".notes");
-const availableNotes = [2000, 500, 100, 50, 20, 5, 1];
+const availableNotes = [2000, 500, 100, 50, 20, 10, 5, 1];
 
 checkButton.addEventListener("click", function validate(){
+
+    let bill = parseInt(billAmount.value);
+    let cash = parseInt(cashGiven.value);
+
     hideMessage();
-     if(billAmount.value > 0){
-        if(cashGiven.value >= billAmount.value){
-            let amountToReturn = cashGiven.value - billAmount.value;
+     if(bill > 0){
+        if(cash >= bill){
+            let amountToReturn = cash - bill;
             calculate(amountToReturn);
         } else{
             showMessage("The cash provided is less than your bill");
