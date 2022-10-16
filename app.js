@@ -11,7 +11,10 @@ checkButton.addEventListener("click", function validate(){
     let cash = parseInt(cashGiven.value);
 
     hideMessage();
-     if(bill > 0){
+    if(bill < 0 || cash < 0){
+        showMessage("Negative inptus cannot be accepted 👿");
+    } 
+     else if(bill > 0){
         if(cash >= bill){
             let amountToReturn = cash - bill;
             calculate(amountToReturn);
