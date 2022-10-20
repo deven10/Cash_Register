@@ -15,13 +15,17 @@ checkButton.addEventListener("click", function validate(){
         showMessage("Negative inptus cannot be accepted 👿");
     } 
      else if(bill > 0){
-        if(cash >= bill){
+        if(cash === bill){
+            showMessage("The cash given is exactly same as the bill amount, no need to give any change ✌");
+        }
+         else if(cash >= bill){
             let amountToReturn = cash - bill;
             calculate(amountToReturn);
         } else{
             showMessage("The cash provided is less than your bill");
         }
-    } else {
+    } 
+    else {
         showMessage("Invalid Bill Amount");
     }
 });
